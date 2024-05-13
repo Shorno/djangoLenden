@@ -3,6 +3,7 @@ from django.shortcuts import render
 from .models import Client
 from django.views.generic.edit import CreateView
 from django.views.generic.list import ListView
+from django.views.generic import DetailView
 from .forms import CreateClientForm
 
 
@@ -48,4 +49,13 @@ class ClientListView(ListView):
     paginate_by = 2
 
 
+class ClientDetailView(DetailView):
+    model = Client
+    template_name = "client_detail.html"
+    context_object_name = "client"
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['total_paid'] = self.object.paid_amount
+        context['total_remaining'] = self.object.loan_amount - self.object.paid_amount
+        return context
