@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <h1 class="text-3xl font-bold">
+        This is the Dashboard for Lenden
+    </h1>
+    <!--
+// v0 by Vercel.
+// https://v0.dev/t/E12m258S8Hf
+-->
+
+    <div class="flex flex-col w-full min-h-screen">
+
+        <main class="flex min-h-[calc(100vh_-_theme(spacing.16))] flex-1 flex-col gap-4 p-4 md:gap-8 md:p-10">
+            <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                <div class="rounded-lg border bg-card text-card-foreground shadow-sm" data-v0-t="card">
+                    <div class="space-y-1.5 p-6 flex flex-row items-center justify-between pb-2">
+                        <h3 class="whitespace-nowrap tracking-tight text-sm font-medium">Total Clients</h3>
+                        <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="w-4 h-4 text-gray-500 dark:text-gray-400"
+                        >
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-4xl font-bold">{{ total }}</div>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Clients currently in due</p>
+                    </div>
+                </div>
+                <div class="rounded-lg border bg-card text-card-foreground shadow-sm" data-v0-t="card">
+                    <div class="space-y-1.5 p-6 flex flex-row items-center justify-between pb-2">
+                        <h3 class="whitespace-nowrap tracking-tight text-sm font-medium">Total Loan Amount</h3>
+                        <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="w-4 h-4 text-gray-500 dark:text-gray-400"
+                        >
+                            <line x1="12" x2="12" y1="2" y2="22"></line>
+                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-4xl font-bold">{{ total_loan_amount }}</div>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Total loan amount this month</p>
+                    </div>
+                </div>
+                <div class="rounded-lg border bg-card text-card-foreground shadow-sm" data-v0-t="card">
+                    <div class="space-y-1.5 p-6 flex flex-row items-center justify-between pb-2">
+                        <h3 class="whitespace-nowrap tracking-tight text-sm font-medium">Total Paid</h3>
+                        <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="green"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="w-4 h-4 text-gray-500 dark:text-gray-400"
+                        >
+                            <line x1="12" x2="12" y1="2" y2="22"></line>
+                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-4xl font-bold text-green-700">{{ total_got_paid }}</div>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Total amount paid by clients</p>
+                    </div>
+                </div>
+                <div class="rounded-lg border bg-card text-card-foreground shadow-sm" data-v0-t="card">
+                    <div class="space-y-1.5 p-6 flex flex-row items-center justify-between pb-2">
+                        <h3 class="whitespace-nowrap tracking-tight text-sm font-medium">Due Amount</h3>
+                        <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="red"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="w-4 h-4 text-gray-500 dark:text-gray-400"
+                        >
+                            <line x1="12" x2="12" y1="2" y2="22"></line>
+                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-4xl font-bold text-red-700 ">{{ remaining }}</div>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Amount to left to collect</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+{% endblock %}
