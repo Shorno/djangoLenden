@@ -5,12 +5,59 @@
     <h1>
         Client list page
     </h1>
-    {% for client in clients %}
-        <h2>{{ client.name }}</h2>
-    {% endfor %}
+    <div class="pt-24 flex flex-col items-center justify-between">
+        <div class="table-div">
+            <table>
+                <thead class="bg-gray-700">
+                <th>Name</th>
+                <th>Amount Due</th>
+                <th>Settlement</th>
+                <th>View Details</th>
+                </thead>
+                {% for client in clients %}
+                    <tbody>
+                    <tr>
+                        <td>{{ client.name }}</td>
+                        <td class="text-red-600 font-bold">
+                            -{{ client.remaining }}
+                        </td>
+                        <td>
+                            <div>
+                                <button class="bg-blue-500 hover:bg-blue-700 text-white py-1 px-3 rounded">
+                                    <a href="/">Add Payment</a>
+                                </button>
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <button class="bg-blue-500 hover:bg-blue-700 text-white py-1 px-3 rounded">
+                                    <a href="/">Details</a>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                {% endfor %}
+            </table>
+        </div>
+    <div class="w-1/2 flex justify-between pt-24">
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}"
+               class="bg-gray-700 hover:bg-black text-white py-1 px-3 rounded">Next</a>
+        {% endif %}
+        {% if page_obj.has_previous %}
+            <a href="?page={{ page_obj.previous_page_number }}"
+               class="bg-gray-700 hover:bg-black text-white py-1 px-3 rounded">Previous</a>
+        {% endif %}
+    </div>
+    </div>
 
-    {% if page_obj.has_next %}
-        <a href="?page={{ page_obj.next_page_number }}">Next</a>
-    {% endif %}
+
+
+
+
+
+
+
 
 {% endblock %}
