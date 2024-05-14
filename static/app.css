@@ -86,7 +86,7 @@ th:last-child {
 }
 
 
-#id_loan_amount, #id_phone, #id_name, #id_email, #id_paid_amount {
+#id_loan_amount, #id_phone, #id_name, #id_email, #id_paid_amount , #id_payment_amount{
 
     width: 100%;
     color: rgb(36, 35, 42);

@@ -7,4 +7,5 @@ urlpatterns = [
     path("history", views.history, name="history"),
     path("clients", views.ClientListView.as_view(), name="clients"),
     path("client/<int:pk>", views.ClientDetailView.as_view(), name="client"),
+    path("add_payment/<int:client_id>", views.add_payment, name="add_payment"),
 ]

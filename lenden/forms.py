@@ -30,3 +30,7 @@ class CreateClientForm(forms.ModelForm):
                 "required": "Please enter the paid amount"
             }
         }
+
+
+class PaymentForm(forms.Form):
+    payment_amount = forms.IntegerField()

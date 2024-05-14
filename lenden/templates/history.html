@@ -4,29 +4,29 @@
 
 {% block content %}
 
-    <div class="pt-24">
-        <div class="table-div">
-            <table>
-                <thead class="bg-gray-700">
-                <th class="tbl-header">Name</th>
-                <th class="tbl-header">Date/Time</th>
-                <th class="tbl-header">Loan Amount</th>
-                <th class="tbl-header">Paid</th>
-                <th class="tbl-header">Remaining</th>
-                </thead>
-                {% for client in clients %}
-                    <tbody>
-                    <tr>
-                        <td>{{ client.name }}</td>
-                        <td>{{ client.created }}</td>
-                        <td>{{ client.loan_amount }}</td>
-                        <td>{{ client.paid_amount }}</td>
-                        <td>{{ client.remaining }}</td>
-                    </tr>
-                    </tbody>
-                {% endfor %}
-            </table>
+        <div class="pt-24">
+            <div class="table-div">
+                <table>
+                    <thead class="bg-gray-700">
+                    <th class="tbl-header">Name</th>
+                    <th class="tbl-header">Date/Time</th>
+                    <th class="tbl-header">Loan Amount</th>
+                    <th class="tbl-header">Paid</th>
+                    <th class="tbl-header">Remaining</th>
+                    </thead>
+                    {% for client in clients %}
+                        <tbody>
+                        <tr>
+                            <td>{{ client.name }}</td>
+                            <td>{{ client.created }}</td>
+                            <td>{{ client.loan_amount }}</td>
+                            <td>{{ client.paid_amount }}</td>
+                            <td>{{ client.remaining }}</td>
+                        </tr>
+                        </tbody>
+                    {% endfor %}
+                </table>
+            </div>
         </div>
-    </div>
 
 {% endblock %}

@@ -1,10 +1,10 @@
 from django.db.models import Sum
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Client
 from django.views.generic.edit import CreateView
 from django.views.generic.list import ListView
 from django.views.generic import DetailView
-from .forms import CreateClientForm
+from .forms import CreateClientForm, PaymentForm
 
 
 # Create your views here.
@@ -41,8 +41,8 @@ class ClientListView(ListView):
     model = Client
     template_name = "clients_list.html"
     context_object_name = "clients"
-    ordering = ["-created"]
-    paginate_by = 5
+    ordering = ["name"]
+    paginate_by = 20
 
 
 class ClientDetailView(DetailView):
@@ -55,3 +55,17 @@ class ClientDetailView(DetailView):
         context['total_paid'] = self.object.paid_amount
         context['total_remaining'] = self.object.loan_amount - self.object.paid_amount
         return context
+
+
+def add_payment(request, client_id):
+    client = get_object_or_404(Client, id=client_id)
+    if request.method == 'POST':
+        form = PaymentForm(request.POST)
+        if form.is_valid():
+            payment_amount = form.cleaned_data['payment_amount']
+            client.paid_amount += payment_amount
+            client.save()
+            return redirect('client', pk=client.id)
+    else:
+        form = PaymentForm()
+    return render(request, 'add_payment.html', {'form': form, 'client': client})
