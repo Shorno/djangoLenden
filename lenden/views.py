@@ -45,8 +45,8 @@ class ClientListView(ListView):
     model = Client
     template_name = "clients_list.html"
     context_object_name = "clients"
-    ordering = ["name"]
-    paginate_by = 2
+    ordering = ["-created"]
+    paginate_by = 5
 
 
 class ClientDetailView(DetailView):

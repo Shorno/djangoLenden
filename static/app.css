@@ -1,4 +1,4 @@
-.main-content{
+.main-content {
     margin-top: 4rem;
     margin-left: 16rem;
     /*background-color: #881414;*/
@@ -51,6 +51,7 @@ thead {
     color: #c1c1c1;
     margin-bottom: 5rem;
 }
+
 thead th {
     padding: 1rem;
 }
@@ -59,12 +60,13 @@ th:first-child {
     border-bottom-left-radius: 0.5rem;
     border-top-left-radius: 0.5rem;
 }
-tbody tr td{
+
+tbody tr td {
     padding: 1rem;
 }
 
 th:last-child {
-   border-bottom-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
     border-top-right-radius: 0.5rem;
 }
 
@@ -82,3 +84,26 @@ th:last-child {
         margin: auto;
     }
 }
+
+
+#id_loan_amount, #id_phone, #id_name, #id_email, #id_paid_amount {
+
+    width: 100%;
+    color: rgb(36, 35, 42);
+    font-size: 16px;
+    line-height: 20px;
+    min-height: 28px;
+    border-radius: 4px;
+    padding: 8px 16px;
+    border: 2px solid transparent;
+    box-shadow: rgb(0 0 0 / 12%) 0 1px 3px, rgb(0 0 0 / 24%) 0 1px 2px;
+    background: rgb(251, 251, 251);
+    transition: all 0.1s ease 0s;
+
+
+    :focus {
+        border: 2px solid rgb(124, 138, 255);
+    }
+
+}
+
