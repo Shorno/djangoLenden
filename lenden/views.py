@@ -13,7 +13,7 @@ class ClientCreateView(CreateView):
     model = Client
     form_class = CreateClientForm
     template_name = "client_form.html"
-    success_url = "/successful"
+    success_url = "/clients"
 
 
 def index(request):
@@ -27,10 +27,6 @@ def index(request):
         "total_got_paid": total_got_paid,
         "remaining": remaining,
     })
-
-
-def successful(request):
-    return render(request, "successful.html")
 
 
 def history(request):
