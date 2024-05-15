@@ -8,10 +8,16 @@ class Client(models.Model):
     phone = models.CharField(max_length=20)
     created = models.DateField(auto_now_add=True)
     loan_amount = models.IntegerField()
-    paid_amount = models.IntegerField()
+    paid_amount = models.IntegerField(default=0)
 
     def remaining(self):
         return self.loan_amount - self.paid_amount
 
     def __str__(self):
         return self.name
+
+
+class PaymentHistory(models.Model):
+    client = models.ForeignKey(Client, on_delete=models.CASCADE)
+    payment_date = models.DateTimeField(auto_now_add=True)
+    payment_amount = models.IntegerField()
